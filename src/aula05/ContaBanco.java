@@ -29,14 +29,24 @@ public class ContaBanco {
         } else if ("CP".equals(t)){
                    this.setSaldo(150);
         }
+            System.out.println("Conta aberta com sucesso!!!");
     }
     
     public void fecharConta(){
-    
+        if(this.getSaldo() > 0){
+            System.out.println("Conta tem saldo, impossivel fechar");
+        } else if (this.getSaldo() < 0){
+            System.out.println("Conta não pode ser encerrado, pois tem debitos");
+        } else {
+            this.setStatus(false);
+            System.out.println("Conta Encerrada");
+        }
     }
     
-    public void depositar() {
-    
+    public void depositar(float v) {
+        if (this.getStatus()){
+            this.saldo = this.saldo + v;
+        }
     }
     
     public void sacar(){
@@ -86,7 +96,7 @@ public class ContaBanco {
         this.saldo = saldo;
     }
 
-    public boolean isStatus() {
+    public boolean getStatus() {
         return status;
     }
 
