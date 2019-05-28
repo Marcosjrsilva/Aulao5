@@ -44,8 +44,8 @@ public class ContaBanco {
     // **** MÉTODOS ESPECIAS ******
 
     public ContaBanco() {
-        this.saldo = 0;
-        this.status = false;
+        this.setSaldo(0);
+        this.setStatus(false);
     }
 
     public int getNumConta() {
