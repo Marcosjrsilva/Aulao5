@@ -26,6 +26,10 @@ public class Aula05 {
         p2.setDono("Gaby Silva");
         p2.abrirConta("CP");
         
+        p1.depositar(100);
+        p2.depositar(350);
+        
+        
         p1.estadoAtual();
         p2.estadoAtual();
         
