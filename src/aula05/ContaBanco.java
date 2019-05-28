@@ -21,6 +21,15 @@ public class ContaBanco {
     
     // MÉTODOS PERSONALIZADOS
     
+    public void estadoAtual(){
+    
+        System.out.println("Conta: " + this.getNumConta());
+        System.out.println("Tipo: " + this.getTipo());
+        System.out.println("Dono: " + this.getDono());
+        System.out.println("Saldo: " + this.getSaldo());
+        System.out.println("Status: " + this.getStatus());
+     }
+    
     public void abrirConta(String t){
         this.setTipo(t);
         this.setStatus(true);
@@ -45,16 +54,38 @@ public class ContaBanco {
     
     public void depositar(float v) {
         if (this.getStatus()){
-            this.saldo = this.saldo + v;
+            //this.saldo = this.saldo + v; ** Acesso direto ao atributo.
+            this.setSaldo(this.getSaldo() + v);
+            System.out.println("Deposito realizado com sucesso na conta " + this.getDono());
+        }else{
+            System.out.println("Impossvel depositar em uma conta fechada");
         }
     }
     
-    public void sacar(){
-    
+    public void sacar(float v){
+        if (this.getStatus()){
+            if (this.getSaldo() >= v) {
+                this.setSaldo(this.getSaldo() - v);
+                    System.out.println("Saque realiza na Conta de " + this.getDono());
+            } else {
+                    System.out.println("Saldo insulficiate para sacar");
+            } 
+        }else {
+                    System.out.println("Impossivel sacar conta encerrada");
+          }
     }
     
     public void pagarMesal(){
-    
+        int v = 0;
+        if (this.getTipo() == "CC") {
+            v = 12;
+        } 
+        if (this.getStatus()){
+            this.setSaldo(this.getSaldo() - v);
+            System.out.println("Mensalidade paga com sucesso da conta " + this.getDono());
+        } else {
+            System.out.println("Impossivel pagar uma conta fechada");
+        }
     }
     
     // **** MÉTODOS ESPECIAS ******
