@@ -21,5 +21,23 @@ public class ContaBanco {
     
     // MÉTODOS PERSONALIZADOS
     
+    public void abrirConta(){
     
+    }
+    
+    public void fecharConta(){
+    
+    }
+    
+    public void depositar() {
+    
+    }
+    
+    public void sacar(){
+    
+    }
+    
+    public void pagarMesal(){
+    
+    }
 }
